@@ -1,64 +1,176 @@
-# Process
+# English
 
-Fork the repository into your account. Once your code is ready open a pull-request on this repository and we will review it.
+# Binance Websocket Price Tracker
 
-# Introduction
+This project is a mini-application for managing real-time price updates via Binance's WebSocket.
 
-The aim of the test is to develop a mini-application for managing a Binance websocket pricing update.
+## 🚀 Technologies Used
 
-1. The appliction should consume this endpoint `GET` https://api.binance.com/api/v3/exchangeInfo and list it. 
-2. Users should be able create a list of symbols.
-3. Users should be able to add symbols to a list for watching the last price updates, best bid price, best ask price and price change percent.
-   1. For that, the application should connect to a websocket using the symbols previously selected by the user.
-   2. The update should occur in almost near real time.
-   3. Use the following url for connection to the websocket. wss://data-stream.binance.com/stream?streams={symbol}/{symbol}
-      1. Example: wss://data-stream.binance.com/stream?streams=ethbtc/bnbbtc
+- **Next.js** 14+ (React Framework)
+- **TypeScript**
+- **Context API** for state management
+- **WebSocket** for real-time updates
+- **Styled Components / Tailwind CSS** for styling
+- **Jest + Testing Library** for unit and integration tests (bonus)
 
-Websocket sample response:
+## 📌 Features
+
+1. Consumes the [Binance Exchange Info API](https://api.binance.com/api/v3/exchangeInfo) to list available trading pairs.
+2. Allows the user to select and create a list of symbols of interest.
+3. Connects to Binance’s WebSocket to display in real-time:
+   - Last price
+   - Best bid price
+   - Best ask price
+   - Percentage price change
+4. Updates occur near real-time.
+5. Responsive for different screen sizes.
+6. (Bonus) Unit and integration tests included.
+
+## 📂 Project Structure
+
+📦 binance-websocket-tracker
+├── 📁 tests/ # Test area
+├── 📁 src
+│ ├── 📁 components/ # Reusable components (using Styled Components)
+│ ├── 📁 contexts/ # Context API for state management
+│ ├── 📁 core/ # Domain structure
+│ ├── 📁 views/ # Next.js pages
+│ ├── 📁 services/ # Services for API requests
+├── 📄 package.json # Dependencies and scripts
+├── 📄 tsconfig.json # TypeScript configuration
+├── 📄 next.config.ts # Next.js configuration
+├── 📄 jest.config.ts # Jest configuration
+├── 📄 jest.environment.ts # Jest environment configuration
+├── 📄 jest.setup.ts # Jest setup implementation
+└── 📄 README.md # Documentation
+
+## 🔧 How to Run the Project
+
+1. Clone the repository:
+
+2. Install dependencies:
+
+   ```sh
+   pnpm i
+   ```
+
+3. Start the development server:
+   ```sh
+   pnpm dev
+   ```
+4. Open http://localhost:3000 in your browser.
+
+## 🧪 Testes
+
+To run the tests:
+
+```sh
+   pnpm test
 ```
-{
-  "e": "24hrTicker",  // Event type
-  "E": 123456789,     // Event time
-  "s": "BNBBTC",      // Symbol
-  "p": "0.0015",      // Price change
-  "P": "250.00",      // Price change percent
-  "w": "0.0018",      // Weighted average price
-  "x": "0.0009",      // First trade(F)-1 price (first trade before the 24hr rolling window)
-  "c": "0.0025",      // Last price
-  "Q": "10",          // Last quantity
-  "b": "0.0024",      // Best bid price
-  "B": "10",          // Best bid quantity
-  "a": "0.0026",      // Best ask price
-  "A": "100",         // Best ask quantity
-  "o": "0.0010",      // Open price
-  "h": "0.0025",      // High price
-  "l": "0.0010",      // Low price
-  "v": "10000",       // Total traded base asset volume
-  "q": "18",          // Total traded quote asset volume
-  "O": 0,             // Statistics open time
-  "C": 86400000,      // Statistics close time
-  "F": 0,             // First trade ID
-  "L": 18150,         // Last trade Id
-  "n": 18151          // Total number of trades
-}
-````
 
-# Technical Requirements
+To run tests in watch mode:
 
-- React 14+
-- Use context for data flow
-- Must be responsive
-- Typescript
-- Usage of functional components
+```sh
+   pnpm test:watch
+```
 
-# Bonus
-- unit-tests for the UI
-- integration-test (one (or more) just in order to show that you know what is it (: )
+## 📖 References
 
-# Docs
-  
-Binance documentation:
-- https://binance-docs.github.io/apidocs/spot/en/#introduction
+- [Binance Documentation](https://binance-docs.github.io/apidocs/spot/en/#introduction)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://react.dev/)
 
-UI Sample to use as a guide:
-![Screenshot 2023-03-15 at 10 51 49](https://user-images.githubusercontent.com/20883536/225329370-30ff8f83-7493-4b91-9ae1-561b6fe6bda3.png)
+---
+
+🚀 Developed by **Victor Augusto dos Santos (IkiraDev)**
+
+# Português
+
+# Binance Websocket Price Tracker
+
+Este projeto é um mini-aplicativo para gerenciar a atualização de preços em tempo real via WebSocket da Binance.
+
+## 🚀 Tecnologias Utilizadas
+
+- **Next.js** 14+ (React Framework)
+- **TypeScript**
+- **Context API** para gerenciamento de estado
+- **WebSocket** para atualizações em tempo real
+- **Styled Components / Tailwind CSS** para estilização
+- **Jest + Testing Library** para testes unitários e de integração (bonus)
+
+## 📌 Funcionalidades
+
+1. Consome a API [Binance Exchange Info](https://api.binance.com/api/v3/exchangeInfo) para listar os pares de negociação disponíveis.
+2. Permite que o usuário selecione e crie uma lista de símbolos de interesse.
+3. Conecta-se ao WebSocket da Binance para exibir em tempo real:
+   - Último preço
+   - Melhor preço de compra (Bid)
+   - Melhor preço de venda (Ask)
+   - Variação percentual de preço
+4. Atualizações ocorrem de forma próxima ao tempo real.
+5. Responsivo para diferentes tamanhos de tela.
+6. (Bonus) Testes unitários e de integração incluídos.
+
+## 📂 Estrutura do Projeto
+
+```
+📦 binance-websocket-tracker
+├── 📁 __tests__/         # Área de testes.
+├── 📁 src
+│   ├── 📁 components/    # Componentes reutilizáveis (foi utilizado style-components)
+│   ├── 📁 contexts/      # Context API para gerenciamento de estado
+│   ├── 📁 core/          # Estrutura de Domínio
+│   ├── 📁 views/         # Páginas do Next.js
+│   ├── 📁 services/      # Serviços para requisições API
+├── 📄 package.json      # Dependências e scripts
+├── 📄 tsconfig.json     # Configuração do TypeScript
+├── 📄 next.config.ts    # Configuração do NextJs
+├── 📄 jest.config.ts    # Configuração do Jest
+├── 📄 jest.environment.ts    # Configuração do environment do Jest
+├── 📄 jest.setup.ts    # Implementação do setup do Jest
+└── 📄 README.md         # Documentação
+
+```
+
+## 🔧 Como Executar o Projeto
+
+1. Clone o repositório:
+
+2. Instale as dependências :
+
+   ```sh
+   pnpm i
+   ```
+
+3. Inicie o servidor de desenvolvimento:
+
+   ```sh
+   pnpm dev
+   ```
+
+4. Acesse `http://localhost:3000` no navegador.
+
+## 🧪 Testes
+
+Para rodar os testes:
+
+```sh
+pnpm test
+```
+
+Para rodar os testes em watch mode:
+
+```sh
+pnpm test:watch
+```
+
+## 📖 Referências
+
+- [Documentação da Binance](https://binance-docs.github.io/apidocs/spot/en/#introduction)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://react.dev/)
+
+---
+
+🚀 Desenvolvido por **Victor Augusto dos Santos (IkiraDev)**
